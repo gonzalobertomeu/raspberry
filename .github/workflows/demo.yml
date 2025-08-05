@@ -1,0 +1,8 @@
+name: RBP Demo
+run-name: ${{github.actor}} is testing
+on: [push]
+jobs:
+	testing:
+		runs-on: self-hosted
+		steps:
+			- run: echo "Hello world"
