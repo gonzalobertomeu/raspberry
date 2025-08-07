@@ -1,0 +1,15 @@
+name: Raspberry Project
+run-name: ${{github.actor}} is testing
+on: [push]
+jobs:
+  BuildDockerImages:
+    runs-on: kinga
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build Docker Images
+        run: |
+          docker build -t kinga-auth -f auth/production.dockerfile auth
+      - name: Tag Docker Images
+        run: |
+          docker tag kinga-auth kinga-auth:latest
